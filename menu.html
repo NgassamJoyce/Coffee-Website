@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Menu</title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./menu.css">
+</head>
+
+<body>
+
+    <!-- Header/ Navbar -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <h2 class="logo-text"> Coffee</h2>
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times">
+                </button>
+
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./menu.html" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Reviews</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item mobile-menu">
+                    <a href="#" class="btn">
+                        Sign in
+                        &nbsp;
+                        <i class="fas fa-arrow-right-from-bracket"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="desktop-action">
+                <a href="#" class="cart-icon">
+                    <i class="fas fa-bag-shopping"></i>
+                    <span class="cart-value">0</span>
+                </a>
+                <a href="#" class="btn">
+                    Sign in
+                    &nbsp;
+                    <i class="fas fa-arrow-right-from-bracket"></i>
+                </a>
+                <button id="menu-open-button" class="fas fa-bars"></button>
+
+            </div>
+        </nav>
+    </header>
+
+    <main class="menu-container">
+        <section class="menu-hero">
+            <div class="hero-content">
+                <p class="hero-title">Fresh &amp; Delicious</p>
+                <h1>Our Menu</h1>
+                <p class="hero-text">From fresh coffee to warm pastries, find your favorite.</p>
+            </div>
+
+            <div class="hero-visual">
+                <img src="./Assets/breakfast.png" alt="Coffee and pastries platter" class="hero-image">
+            </div>
+        </section>
+
+        <section class="menu-section full-menu">
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="all">All</button>
+                <button class="tab-btn" data-category="coffee">Coffee</button>
+                <button class="tab-btn" data-category="cold-drinks">Cold Drinks</button>
+                <button class="tab-btn" data-category="hot-drinks">Hot Drinks</button>
+                <button class="tab-btn" data-category="pastries">Pastries</button>
+                <button class="tab-btn" data-category="meals">Meals</button>
+            </div>
+
+            <ul class="section-content card-list"></ul>
+        </section>
+    </main>
+
+    <script src="./Js/menu.js"></script>
+    <script src="./Js/navbar.js"></script>
+</body>
+
+</html>

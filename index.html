@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Webside | Joycepro</title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Link swiper css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <!-- Header/ Navbar -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <h2 class="logo-text"> Coffee</h2>
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times">
+                </button>
+
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about-section" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu-section" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reviews-section" class="nav-link">Reviews</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#contact-section" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item mobile-menu">
+                    <a href="#" class="btn">
+                        Sign in
+                        &nbsp;
+                        <i class="fas fa-arrow-right-from-bracket"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="desktop-action">
+                <a href="#" class="cart-icon">
+                    <i class="fas fa-bag-shopping"></i>
+                    <span class="cart-value">0</span>
+                </a>
+                <a href="#" class="btn">
+                    Sign in
+                    &nbsp;
+                    <i class="fas fa-arrow-right-from-bracket"></i>
+                </a>
+                <button id="menu-open-button" class="fas fa-bars">
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="section-content">
+                <div class="hero-details">
+                    <h2 class="title">Best Coffee</h2>
+                    <h3 class="subtitle">Make your day great with our special coffee!</h3>
+                    <p class="description">Welcome to our coffee paradise, where every bean tells a story and every cup
+                        sparks joy.</p>
+
+                    <div class="buttons">
+                        <a href="#" class="button order-now">Order Now</a>
+                        <a href="#" class="button contact-us">Contact Us</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="./Assets/photo1.png" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu section -->
+        <section class="menu-section" id="menu-section">
+            <h2 class="section-title">Favorite Menu</h2>
+
+            <ul class="section-content card-list">
+            </ul> 
+
+            <!-- CART TABLE -->
+            <div class="cart-tab"> 
+                <h3 class="section-title card-title">Your Cart</h3>
+
+                <div class="cart-list">
+                    <p class="empty-cart">Your cart is empty. Add an item!</p>
+                </div>
+
+                <div class="total-container">
+                    <h4>Total: </h4>
+                    <h4 class="cart-total">$0.00</h4>
+                </div>
+
+                <div class="btn-container">
+                    <a href="#" class="btn close-btn">close</a>
+                    <a href="#" class="btn">Check out</a>
+                </div>
+            </div>
+
+            <a class="btn btn-plus" href="./menu.html">
+                Voir plus
+                <i class="fas fa-long-arrow-alt-right"></i>
+            </a>
+        </section>
+
+        <!-- About section -->
+        <section class="about-section" id="about-section">
+            <div class="section-content">
+                <div class="about-image-wrapper">
+                    <img src="./Assets/photo2.png" alt="About" class="about-image">
+                </div>
+                <div class="about-details">
+                    <h2 class="section-title">About us</h2>
+                    <p class="text">
+                        At Coffee House in Berndorf , Germany , we pride ourselves on being a go-to destination for
+                        coffee lovers and conversation seekers alike
+                        We're dedicated to providing an exceptional coffee experience in a cozy and inviting atmosphere,
+                        where guests can relax, unwind, and enjoy their time in comfort.
+                    </p>
+                    <div class="social-link-list">
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials section -->
+        <section class="testimonials-section" id="reviews-section">
+            <h2 class="section-title">Our Reviews</h2>
+            <div class="section-content">
+                <div class="slider-container swiper">
+                    <div class="slider-wrapper">
+                        <ul class="testimonials-list swiper-wrapper">
+                            <li class="testimonial swiper-slide">
+                                <div class="card-review">
+                                    <img src="./Assets/user-1.png" alt="User" class="uer-image">
+                                </div>
+                                <h3 class="name">Sarah Johnson</h3>
+                                <i class="feedback">"Loved the French roast. Perfectly
+                                    balanced and rich. Will order again!"
+                                </i>
+                                <div class="starts">
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star-half-alt" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star-half-alt" style="color: #FFD700;"></i>
+                                </div>
+                            </li>
+                            <li class="testimonial swiper-slide">
+                                <div class="card-review">
+                                    <img src="./Assets/user-2.png" alt="User" class="uer-image">
+
+                                </div>
+                                <h3 class="name">James Wilson</h3>
+                                <i class="feedback">"Great espresso blend! Smooth and bold flavor. Fast shipping
+                                    too!"
+                                </i>
+                                <div class="starts">
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star-half-alt" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star-half-alt" style="color: #FFD700;"></i>
+                                </div>
+                            </li>
+                            <li class="testimonial swiper-slide">
+                                <div class="card-review">
+                                    <img src="./Assets/user-3.png" alt="User" class="uer-image">
+
+                                </div>
+                                <h3 class="name">Michael Brown</h3>
+                                <i class="feedback">"Fantastic mocha flavor. Fresh and aromatic. Quick shipping!"</i>
+                                <div class="starts">
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star-half-alt" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star-half-alt" style="color: #FFD700;"></i>
+                                </div>
+                            </li>
+                            <li class="testimonial swiper-slide">
+                                <div class="card-review">
+                                    <img src="./Assets/user-4.png" alt="User" class="uer-image">
+
+                                </div>
+                                <h3 class="name">Emily Harris</h3>
+                                <i class="feedback">"Excellent quality! Fresh beans and quick delivery. Highly
+                                    recommend.
+                                </i>
+                                <div class="starts">
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star-half-alt" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star-half-alt" style="color: #FFD700;"></i>
+                                </div>
+                            </li>
+                            <li class="testimonial swiper-slide">
+                                <div class="card-review">
+                                    <img src="./Assets/user-5.png" alt="User" class="uer-image">
+
+                                </div>
+                                <h3 class="name">Anthony Thompson</h3>
+                                <i class="feedback">"Best decaf I've tried! Smooth and flavorful. Arrived promptly."</i>
+                                <div class="starts">
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star-half-alt" style="color: #FFD700;"></i>
+                                    <i class="fas fa-star-half-alt" style="color: #FFD700;"></i>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-slide-button swiper-button-prev"></div>
+                        <div class="swiper-slide-button swiper-button-next"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact session -->
+        <section class="contact-section" id="contact-section">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="section-content">
+                <ul class="contact-info-list">
+                    <li class="contact-info">
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                        <p>123 Campsite Avenue, wilderness, CA 98765</p>
+                    </li>
+                    <li class="contact-info">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p>info@coffeeshopwebsite.com</p>
+                    </li>
+                    <li class="contact-info">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>(123) 456-78909</p>
+                    </li>
+                    <li class="contact-info">
+                        <i class="fa-solid fa-clock"></i>
+                        <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    </li>
+                    <li class="contact-info">
+                        <i class="fa-solid fa-clock"></i>
+                        <p>Sartuday: 10:00 AM - 3:00 PM</p>
+                    </li>
+                    <li class="contact-info">
+                        <i class="fa-solid fa-clock"></i>
+                        <p>Sunday: closed</p>
+                    </li>
+                    <li class="contact-info">
+                        <i class="fa-solid fa-globe"></i>
+                        <p>www.codingnepalweb.com</p>
+                    </li>
+                </ul>
+
+                <form action="#" class="contact-form">
+                    <input type="text" class="form-input" placeholder="Your name">
+                    <input type="email" class="form-input" placeholder="Your email" required>
+                    <textarea placeholder="Your message" class="form-input" required></textarea>
+                    <button class="submit-button">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Linking swiper script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <!-- Linking custom script -->
+    <script src="./Js/script.js"></script>
+</body>
+
+</html>

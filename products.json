@@ -1,0 +1,170 @@
+[
+    {
+        "id": 1,
+        "name": "White Coffee",
+        "price": "30$",
+        "image": "Assets/white-coffee.png",        
+        "category": "coffee"
+    },
+    {
+        "id": 2,
+        "name": "Milk Coffee",
+        "price": "90$",
+        "image": "Assets/Milk-coffee.png",       
+        "category": "coffee"
+    },
+    {
+        "id": 3,
+        "name": "Chocolate Coffee",
+        "price": "100$",
+        "image": "Assets/chocolate-coffee.png",        
+        "category": "coffee"
+    },
+    {
+        "id": 4,
+        "name": "Menthe Coffee",
+        "price": "150$",
+        "image": "Assets/menthe-coffee.png",        
+        "category": "coffee"
+    },
+    {
+        "id": 5,
+        "name": "Hot Coffee",
+        "price": "180$",
+        "image": "Assets/hot-beverages.png",        
+        "category": "coffee"
+    },
+    {
+        "id": 6,
+        "name": "Black Coffee",
+        "price": "80$",
+        "image": "Assets/black-coffee.png",        
+        "category": "coffee"
+    },
+    {
+        "id": 7,
+        "name": "Ginger Coffee",
+        "price": "200$",
+        "image": "Assets/coffee-gimgembre.jpg",        
+        "category": "coffee"
+    },
+    {
+        "id": 8,
+        "name": "Graine Coffee",
+        "price": "60$",
+        "image": "Assets/coffee-graine.jpg",        
+        "category": "coffee"
+    },
+    {
+        "id": 9,
+        "name": "Iced Latte",
+        "price": "110$",
+        "image": "Assets/iced-latte.webp",
+        "category": "cold-drinks"
+    },
+    {
+        "id": 10,
+        "name": "Cold Brew",
+        "price": "120$",
+        "image": "Assets/cold-brew.webp",
+        "category": "cold-drinks"
+    },
+    {
+        "id": 11,
+        "name": "Orange Juice",
+        "price": "70$",
+        "image": "Assets/orange-juice.webp",
+        "category": "cold-drinks"
+    },
+    {
+        "id": 12,
+        "name": "Strawberry Smoothie",
+        "price": "100$",
+        "image": "Assets/strawberry-smoothie.webp",
+        "category": "cold-drinks"
+    },
+    {
+        "id": 13,
+        "name": "Hot Chocolate",
+        "price": "90$",
+        "image": "Assets/hot-chocolate.webp",
+        "category": "hot-drinks"
+    },
+    {
+        "id": 14,
+        "name": "Green Tea",
+        "price": "50$",
+        "image": "Assets/green-tea.webp",
+        "category": "hot-drinks"
+    },
+    {
+        "id": 15,
+        "name": "Ginger Tea",
+        "price": "60$",
+        "image": "Assets/ginger-tea.webp",
+        "category": "hot-drinks"
+    },
+    {
+        "id": 16,
+        "name": "Honey Milk",
+        "price": "70$",
+        "image": "Assets/honey-milk.webp",
+        "category": "hot-drinks"
+    },
+    {
+        "id": 17,
+        "name": "Croissant",
+        "price": "40$",
+        "image": "Assets/croissant.webp",
+        "category": "pastries"
+    },
+    {
+        "id": 18,
+        "name": "Chocolate Muffin",
+        "price": "50$",
+        "image": "Assets/chocolate-muffin.webp",
+        "category": "pastries"
+    },
+    {
+        "id": 19,
+        "name": "Cheesecake",
+        "price": "130$",
+        "image": "Assets/cheesecake.webp",
+        "category": "pastries"
+    },
+    {
+        "id": 20,
+        "name": "Brownie",
+        "price": "60$",
+        "image": "Assets/brownie.webp",
+        "category": "pastries"
+    },
+    {
+        "id": 21,
+        "name": "Club Sandwich",
+        "price": "150$",
+        "image": "Assets/club-sandwich.webp",
+        "category": "meals"
+    },
+    {
+        "id": 22,
+        "name": "Pancakes",
+        "price": "110$",
+        "image": "Assets/pancakes.webp",
+        "category": "meals"
+    },
+    {
+        "id": 23,
+        "name": "Omelette",
+        "price": "90$",
+        "image": "Assets/omelette.webp",
+        "category": "meals"
+    },
+    {
+        "id": 24,
+        "name": "Waffle",
+        "price": "100$",
+        "image": "Assets/waffle.webp",
+        "category": "meals"
+    }
+]
