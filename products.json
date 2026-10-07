@@ -3,56 +3,56 @@
         "id": 1,
         "name": "White Coffee",
         "price": "30$",
-        "image": "Assets/white-coffee.png",        
+        "image": "Assets/white-coffee.webp",        
         "category": "coffee"
     },
     {
         "id": 2,
         "name": "Milk Coffee",
         "price": "90$",
-        "image": "Assets/Milk-coffee.png",       
+        "image": "Assets/Milk-coffee.webp",       
         "category": "coffee"
     },
     {
         "id": 3,
         "name": "Chocolate Coffee",
         "price": "100$",
-        "image": "Assets/chocolate-coffee.png",        
+        "image": "Assets/chocolate-coffee.webp",        
         "category": "coffee"
     },
     {
         "id": 4,
         "name": "Menthe Coffee",
         "price": "150$",
-        "image": "Assets/menthe-coffee.png",        
+        "image": "Assets/menthe-coffee.webp",        
         "category": "coffee"
     },
     {
         "id": 5,
         "name": "Hot Coffee",
         "price": "180$",
-        "image": "Assets/hot-beverages.png",        
+        "image": "Assets/hot-beverages.webp",        
         "category": "coffee"
     },
     {
         "id": 6,
         "name": "Black Coffee",
         "price": "80$",
-        "image": "Assets/black-coffee.png",        
+        "image": "Assets/black-coffee.webp",        
         "category": "coffee"
     },
     {
         "id": 7,
         "name": "Ginger Coffee",
         "price": "200$",
-        "image": "Assets/coffee-gimgembre.jpg",        
+        "image": "Assets/coffee-gimgembre.webp",        
         "category": "coffee"
     },
     {
         "id": 8,
         "name": "Graine Coffee",
         "price": "60$",
-        "image": "Assets/coffee-graine.jpg",        
+        "image": "Assets/coffee-graine.webp",        
         "category": "coffee"
     },
     {

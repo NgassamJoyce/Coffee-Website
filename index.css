@@ -534,13 +534,18 @@ header .navbar {
 /* Testimonials section styling */
 .testimonials-section {
     padding: 0 ;
-    background: var(--light-pink-color);
+    background: #3b141c91;
+    padding-top: 2rem;
+}
+
+.testimonials-section .section-title{
+    color: var(--white-color);
 }
 
 .testimonials-section .slider-wrapper {
     overflow: hidden;
     margin: 0 auto 50px;
-    max-width: 800px;
+    max-width: 900px;
 }
 
 .testimonials-section .testimonial {
