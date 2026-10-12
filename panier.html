@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./panier.css">
+</head>
+
+<body>
+    <!-- Header/ Navbar -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="./index.html" class="nav-logo">
+                <h2 class="logo-text">☕️ Coffee</h2>
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times">
+                </button>
+
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./index.html#about-section" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./menu.html" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./index.html#reviews-section" class="nav-link">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./index.html#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item mobile-menu">
+                    <a href="#" class="btn">
+                        Sign in
+                        &nbsp;
+                        <i class="fas fa-arrow-right-from-bracket"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="desktop-action">
+                <a href="./panier.html" class="cart-icon">
+                    <i class="fas fa-bag-shopping"></i>
+                    <span class="cart-value">0</span>
+                </a>
+                <a href="#" class="btn">
+                    Sign in
+                    &nbsp;
+                    <i class="fas fa-arrow-right-from-bracket"></i>
+                </a>
+                <button id="menu-open-button" class="fas fa-bars">
+
+            </div>
+        </nav>
+    </header>
+
+    <main class="cart-page">
+        <h1 class="section-title">Your Cart</h1>
+
+        <div class="cart-layout">
+            <div class="cart-items">
+                <div class="cart-list"></div>
+                <a href="menu.html" class="continue-link">
+                    <i class="fas fa-arrow-left"></i> Continue shopping
+                </a>
+            </div>
+
+            <aside class="cart-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-row">
+                    <span>Items</span>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span class="cart-total">$0.00</span>
+                </div>
+                <a href="#" class="btn checkout-btn">Check out</a>
+            </aside>
+        </div>
+    </main>
+
+    <script src="./Js/cart.js"></script>
+    <script src="./Js/navbar.js"></script>
+    <script src="./Js/panier.js"></script>
+    <script src="./Js/animation.js"></script>
+</body>
+
+</html>

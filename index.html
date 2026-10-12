@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- Link swiper css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
-
     <link rel="stylesheet" href="./index.css">
 </head>
 
@@ -31,14 +30,14 @@
                     <a href="#about-section" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#menu-section" class="nav-link">Menu</a>
+                    <a href="menu.html" class="nav-link">Menu</a>
                 </li>
                 <li class="nav-item">
                     <a href="#reviews-section" class="nav-link">Reviews</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#contact-section" class="nav-link">Contact</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </li>
                 <li class="nav-item mobile-menu">
                     <a href="#" class="btn">
@@ -50,7 +49,7 @@
             </ul>
 
             <div class="desktop-action">
-                <a href="#" class="cart-icon">
+                <a href="./panier.html" class="cart-icon">
                     <i class="fas fa-bag-shopping"></i>
                     <span class="cart-value">0</span>
                 </a>
@@ -76,12 +75,18 @@
                         sparks joy.</p>
 
                     <div class="buttons">
-                        <a href="#" class="button order-now">Order Now</a>
-                        <a href="#" class="button contact-us">Contact Us</a>
+                        <a href="./menu.html" class="button order-now">Order Now</a>
+                        <a href="#contact" class="button contact-us">Contact Us</a>
                     </div>
+
+                    <ul class="hero-stats">
+                        <li><strong>20+</strong><span>Menu items</span></li>
+                        <li><strong>4.8 ★</strong><span>Customer rating</span></li>
+                        <li><strong>15 min</strong><span>Fast service</span></li>
+                    </ul>
                 </div>
                 <div class="hero-image-wrapper">
-                    <img src="./Assets/photo1.webp">
+                    <img src="./Assets/photo1.webp" alt="Cup of coffee with splashing coffee beans">
                 </div>
             </div>
         </section>
@@ -93,25 +98,6 @@
             <ul class="section-content card-list">
             </ul>
 
-            <!-- CART TABLE -->
-            <div class="cart-tab">
-                <h3 class="section-title card-title">Your Cart</h3>
-
-                <div class="cart-list">
-                    <p class="empty-cart">Your cart is empty. Add an item!</p>
-                </div>
-
-                <div class="total-container">
-                    <h4>Total: </h4>
-                    <h4 class="cart-total">$0.00</h4>
-                </div>
-
-                <div class="btn-container">
-                    <a href="#" class="btn close-btn">close</a>
-                    <a href="#" class="btn">Check out</a>
-                </div>
-            </div>
-
             <a class="btn btn-plus" href="./menu.html">
                 Voir plus
                 <i class="fas fa-long-arrow-alt-right"></i>
@@ -120,24 +106,69 @@
 
         <!-- About section -->
         <section class="about-section" id="about-section">
-            <div class="section-content">
-                <div class="about-image-wrapper">
-                    <img src="./Assets/photo2.png" alt="About" class="about-image">
-                </div>
-                <div class="about-details">
-                    <h2 class="section-title">About us</h2>
-                    <p class="text">
-                        At Coffee House in Berndorf , Germany , we pride ourselves on being a go-to destination for
-                        coffee lovers and conversation seekers alike
-                        We're dedicated to providing an exceptional coffee experience in a cozy and inviting atmosphere,
-                        where guests can relax, unwind, and enjoy their time in comfort.
-                    </p>
-                    <div class="social-link-list">
-                        <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+            <h2 class="section-title">About Us</h2>
+
+            <div class="about-slider swiper about-swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide about-slide">
+                        <div class="about-image">
+                            <img src="./Assets/enter.webp" alt="Entrance of the Coffee restaurant">
+                        </div>
+                        <div class="about-text">
+                            <span class="about-tag">Welcome</span>
+                            <h3>A warm welcome at our door</h3>
+                            <p>Step into the aroma of freshly roasted coffee. Whether you stop by for a quick espresso
+                                or a long chat, there is always a seat waiting for you.</p>
+                            <a href="./menu.html" class="btn about-btn">See our menu <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
+
+                    <div class="swiper-slide about-slide">
+                        <div class="about-image">
+                            <img src="./Assets/terasse.webp" alt="Terrace with string lights at sunset">
+                        </div>
+                        <div class="about-text">
+                            <span class="about-tag">The Terrace</span>
+                            <h3>Coffee under the string lights</h3>
+                            <p>Enjoy your cup outdoors, wrapped in warm lights and fresh air. The perfect spot for a
+                                relaxed afternoon or a golden-hour coffee.</p>
+                            <a href="./menu.html" class="btn about-btn">See our menu <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide about-slide">
+                        <div class="about-image">
+                            <img src="./Assets/family-terase.webp" alt="Room for the whole family">
+                        </div>
+                        <div class="about-text">
+                            <span class="about-tag">Family Room</span>
+                            <h3>Room for the whole family</h3>
+                            <p>Spacious tables, a friendly atmosphere and a menu everyone loves.
+                                Parents can relax while the kids enjoy themselves.</p>
+                            <a href="./menu.html" class="btn about-btn">See our menu <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide about-slide">
+                        <div class="about-image">
+                            <img src="./Assets/terasse-couple.webp" alt="A cozy corner for two">
+                        </div>
+                        <div class="about-text">
+                            <span class="about-tag">For Two</span>
+                            <h3>A cozy corner for two</h3>
+                            <p>Soft lighting, quiet tables and a calm atmosphere.
+                                Our intimate lounge is made for romantic dates and long conversations.</p>
+                            <a href="./menu.html" class="btn about-btn">See our menu <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
                 </div>
+                <div class="swiper-pagination"></div>
             </div>
         </section>
 
@@ -297,11 +328,11 @@
                 <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="menu.html">Menu</a></li>
-                        <li><a href="#reviews">Reviews</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./index.html#about-section">About</a></li>
+                        <li><a href="./menu.html">Menu</a></li>
+                        <li><a href="./index.html#reviews-section">Reviews</a></li>
+                        <li><a href="./index.html#contact">Contact</a></li>
                     </ul>
                 </div>
 
@@ -334,7 +365,10 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
     <!-- Linking custom script -->
+    <script src="./Js/cart.js"></script>
+    <script src="./Js/navbar.js"></script>
     <script src="./Js/script.js"></script>
+    <script src="./Js/animation.js"></script>
 </body>
 
 </html>

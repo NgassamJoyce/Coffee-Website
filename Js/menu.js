@@ -4,7 +4,7 @@ const tabs = document.querySelectorAll('.tab-btn');
 let productList = [];
 
 const showCards = (category) => {
-    cardList.innerHTML = '';   // on vide la grille
+    cardList.innerHTML = '';   
 
     const filtered = category === 'all'
         ? productList
@@ -24,6 +24,7 @@ const showCards = (category) => {
         `;
 
         cardList.appendChild(menuItem);
+        menuItem.querySelector('.card-btn').addEventListener('click', () => addToCart(product));
     });
 };
 
@@ -42,3 +43,5 @@ fetch('products.json')
         showCards('all');   // au chargement : tout afficher
     })
     .catch(error => console.error('Erreur de chargement :', error));
+
+    
