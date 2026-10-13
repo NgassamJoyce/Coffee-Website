@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order confirmed | Best Coffee</title>
+    <meta name="theme-color" content="#3b141c">
+    <meta name="robots" content="noindex">
+
+    <!-- Favicon (emoji) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./checkout.css">
+</head>
+
+<body>
+    <!-- Header/ Navbar -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="./index.html" class="nav-logo">
+                <h2 class="logo-text">☕️ Coffee</h2>
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times">
+                </button>
+
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./index.html#about-section" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./menu.html" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./index.html#reviews-section" class="nav-link">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./index.html#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item mobile-menu">
+                    <a href="#" class="btn">
+                        Sign in
+                        &nbsp;
+                        <i class="fas fa-arrow-right-from-bracket"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="desktop-action">
+                <a href="./panier.html" class="cart-icon">
+                    <i class="fas fa-bag-shopping"></i>
+                    <span class="cart-value">0</span>
+                </a>
+                <a href="#" class="btn">
+                    Sign in
+                    &nbsp;
+                    <i class="fas fa-arrow-right-from-bracket"></i>
+                </a>
+                <button id="menu-open-button" class="fas fa-bars"></button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="checkout-page">
+        <h1 class="section-title">Order Confirmed</h1>
+
+        <!-- Étapes : tout est terminé -->
+        <ol class="steps">
+            <li class="done">
+                <span class="step-num"><i class="fas fa-check"></i></span>
+                <span class="step-label">Cart</span>
+            </li>
+            <li class="done">
+                <span class="step-num"><i class="fas fa-check"></i></span>
+                <span class="step-label">Details</span>
+            </li>
+            <li class="done">
+                <span class="step-num"><i class="fas fa-check"></i></span>
+                <span class="step-label">Confirmation</span>
+            </li>
+        </ol>
+
+        <!-- Affiché s'il n'y a aucune commande à montrer -->
+        <div class="confirm-empty" id="confirm-empty" hidden>
+            <i class="fa-solid fa-mug-hot"></i>
+            <p>No recent order to show.</p>
+            <a href="./menu.html" class="btn">Browse the menu</a>
+        </div>
+
+        <!-- La commande -->
+        <section class="confirm-card" id="confirm-card" hidden>
+            <div class="confirm-icon"><i class="fas fa-check"></i></div>
+
+            <h2>Thank you, <span id="c-name"></span>!</h2>
+            <p class="confirm-text">Your order has been received and is being prepared.</p>
+
+            <div class="confirm-id">Order number <strong id="c-id"></strong></div>
+
+            <div class="confirm-grid">
+                <div>
+                    <span>Date</span>
+                    <strong id="c-date"></strong>
+                </div>
+                <div>
+                    <span>Estimated time</span>
+                    <strong id="c-eta"></strong>
+                </div>
+                <div>
+                    <span>Method</span>
+                    <strong id="c-method"></strong>
+                </div>
+                <div>
+                    <span>Payment</span>
+                    <strong id="c-payment"></strong>
+                </div>
+                <div>
+                    <span>Phone</span>
+                    <strong id="c-phone"></strong>
+                </div>
+                <div>
+                    <span id="c-place-label"></span>
+                    <strong id="c-place"></strong>
+                </div>
+                <div class="wide" id="c-notes-box" hidden>
+                    <span>Notes</span>
+                    <strong id="c-notes"></strong>
+                </div>
+            </div>
+
+            <ul class="confirm-items" id="c-items"></ul>
+
+            <div class="confirm-totals">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="c-subtotal"></span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <span id="c-fee"></span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span id="c-total"></span>
+                </div>
+            </div>
+
+            <div class="confirm-actions">
+                <a href="./menu.html" class="btn"><i class="fas fa-mug-hot"></i> Order again</a>
+                <button type="button" class="btn btn-outline" id="print-btn"><i class="fas fa-print"></i> Print receipt</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="./Js/cart.js"></script>
+    <script src="./Js/navbar.js"></script>
+    <script src="./Js/confirmation.js"></script>
+    <script src="./Js/animations.js"></script>
+</body>
+
+</html>

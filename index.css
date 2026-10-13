@@ -1024,6 +1024,68 @@ html.page-leaving main {
     transform: translateY(-3px);
 }
 
+/* ===== Formulaire de contact : erreurs et confirmation ===== */
+
+.error-msg {
+    display: none;
+    color: #c0392b;
+    font-size: var(--font-size-s);
+}
+
+.form-group.has-error .error-msg {
+    display: block;
+}
+
+.form-group.has-error input,
+.form-group.has-error textarea {
+    border-color: #c0392b;
+    background: #fff5f5;
+}
+
+.contact-btn:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+/* message de remerciement (caché tant que le formulaire n'est pas envoyé) */
+.form-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+    text-align: center;
+}
+
+.form-success > i {
+    display: grid;
+    place-items: center;
+    width: 4.5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #2e9e5b;
+    color: var(--white-color);
+    font-size: var(--font-size-m);
+}
+
+.form-success p {
+    max-width: 22rem;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.send-again {
+    margin-top: .6rem;
+}
+
+/* quand c'est envoyé : on cache les champs et on montre le remerciement */
+.contact-form.is-sent > :not(.form-success) {
+    display: none;
+}
+
+.contact-form.is-sent .form-success {
+    display: flex;
+    animation: fadeUp .6s ease both;
+}
 
 
 /* Responsive media query code for max width 1024px */

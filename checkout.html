@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Best Coffee</title>
+    <meta name="description" content="Complete your Best Coffee order.">
+    <meta name="theme-color" content="#3b141c">
+    <meta name="robots" content="noindex">
+
+    <!-- Favicon (emoji) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./checkout.css">
+</head>
+
+<body>
+    <!-- Header/ Navbar -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="./index.html" class="nav-logo">
+                <h2 class="logo-text">☕️ Coffee</h2>
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times">
+                </button>
+
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./index.html#about-section" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./menu.html" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./index.html#reviews-section" class="nav-link">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./index.html#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item mobile-menu">
+                    <a href="#" class="btn">
+                        Sign in
+                        &nbsp;
+                        <i class="fas fa-arrow-right-from-bracket"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="desktop-action">
+                <a href="./panier.html" class="cart-icon">
+                    <i class="fas fa-bag-shopping"></i>
+                    <span class="cart-value">0</span>
+                </a>
+                <a href="#" class="btn">
+                    Sign in
+                    &nbsp;
+                    <i class="fas fa-arrow-right-from-bracket"></i>
+                </a>
+                <button id="menu-open-button" class="fas fa-bars"></button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="checkout-page">
+        <h1 class="section-title">Checkout</h1>
+
+        <!-- Étapes -->
+        <ol class="steps">
+            <li class="done">
+                <span class="step-num"><i class="fas fa-check"></i></span>
+                <span class="step-label">Cart</span>
+            </li>
+            <li class="active">
+                <span class="step-num">2</span>
+                <span class="step-label">Details</span>
+            </li>
+            <li>
+                <span class="step-num">3</span>
+                <span class="step-label">Confirmation</span>
+            </li>
+        </ol>
+
+        <!-- Affiché si le panier est vide -->
+        <div class="checkout-empty" hidden>
+            <i class="fa-solid fa-mug-hot"></i>
+            <p>Your cart is empty, there is nothing to order yet.</p>
+            <a href="./menu.html" class="btn">Browse the menu</a>
+        </div>
+
+        <div class="checkout-layout">
+            <form class="checkout-form" id="checkout-form" novalidate>
+
+                <!-- 1. Coordonnées -->
+                <section class="form-block">
+                    <h3><i class="fas fa-user"></i> Contact details</h3>
+
+                    <div class="form-group">
+                        <label for="fullname">Full name</label>
+                        <input type="text" id="fullname" placeholder="Your full name" autocomplete="name">
+                        <small class="error-msg" aria-live="polite"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone" placeholder="+237 6 00 00 00 00" autocomplete="tel">
+                        <small class="error-msg" aria-live="polite"></small>
+                    </div>
+                </section>
+
+                <!-- 2. Livraison -->
+                <section class="form-block">
+                    <h3><i class="fas fa-truck-fast"></i> Delivery method</h3>
+
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="delivery" value="delivery" checked>
+                            <span class="option-body">
+                                <i class="fas fa-motorcycle"></i>
+                                <strong>Home delivery</strong>
+                                <small>30–45 min</small>
+                            </span>
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="delivery" value="pickup">
+                            <span class="option-body">
+                                <i class="fas fa-store"></i>
+                                <strong>Store pickup</strong>
+                                <small>15–20 min</small>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="form-group address-group">
+                        <label for="address">Delivery address</label>
+                        <input type="text" id="address" placeholder="Neighborhood, street, landmark" autocomplete="street-address">
+                        <small class="error-msg" aria-live="polite"></small>
+                    </div>
+
+                    <p class="pickup-note">
+                        <i class="fas fa-location-dot"></i>
+                        Pick up your order at <strong>Yaoundé, Bastos</strong>. No delivery fee.
+                    </p>
+                </section>
+
+                <!-- 3. Paiement -->
+                <section class="form-block">
+                    <h3><i class="fas fa-wallet"></i> Payment method</h3>
+
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="payment" value="cash" checked>
+                            <span class="option-body">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <strong>Cash</strong>
+                                <small>Pay when you receive</small>
+                            </span>
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="payment" value="momo">
+                            <span class="option-body">
+                                <i class="fas fa-mobile-screen-button"></i>
+                                <strong>Mobile Money</strong>
+                                <small>MTN or Orange</small>
+                            </span>
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="payment" value="card">
+                            <span class="option-body">
+                                <i class="fas fa-credit-card"></i>
+                                <strong>Card</strong>
+                                <small>Visa or Mastercard</small>
+                            </span>
+                        </label>
+                    </div>
+                </section>
+
+                <!-- 4. Note -->
+                <section class="form-block">
+                    <h3><i class="fas fa-pen"></i> Order notes <span class="optional">(optional)</span></h3>
+
+                    <div class="form-group">
+                        <label for="notes" class="sr-only">Order notes</label>
+                        <textarea id="notes" placeholder="Anything we should know? (sugar, no ice, allergies...)"></textarea>
+                    </div>
+                </section>
+            </form>
+
+            <!-- Récapitulatif -->
+            <aside class="checkout-summary">
+                <h2>Order Summary</h2>
+
+                <ul class="summary-items"></ul>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span class="summary-subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <span class="summary-delivery">$0.00</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span class="summary-total">$0.00</span>
+                </div>
+
+                <button type="submit" form="checkout-form" class="btn place-order-btn">
+                    <i class="fas fa-lock"></i> Place order
+                </button>
+
+                <a href="./panier.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to cart</a>
+
+                <p class="demo-note">Demo site: no real payment will be made.</p>
+            </aside>
+        </div>
+    </main>
+
+    <script src="./Js/cart.js"></script>
+    <script src="./Js/navbar.js"></script>
+    <script src="./Js/checkout.js"></script>
+    <script src="./Js/animations.js"></script>
+</body>
+
+</html>
