@@ -101,9 +101,49 @@
                 <button class="tab-btn" data-category="meals">Meals</button>
             </div>
 
+            <!-- Recherche et tri -->
+            <div class="menu-toolbar">
+                <div class="search-box">
+                    <i class="fas fa-magnifying-glass"></i>
+                    <input type="text" id="menu-search" placeholder="Search the menu..." autocomplete="off"
+                        aria-label="Search the menu">
+                    <button type="button" class="search-clear" aria-label="Clear search" hidden>
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="sort-box">
+                    <label for="menu-sort">Sort by</label>
+                    <select id="menu-sort">
+                        <option value="default">Featured</option>
+                        <option value="price-asc">Price: low to high</option>
+                        <option value="price-desc">Price: high to low</option>
+                        <option value="name-asc">Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <p class="results-count" id="results-count" aria-live="polite"></p>
+
             <ul class="card-list">
 
             </ul>
+
+            <!-- Aucun résultat -->
+            <div class="menu-empty" hidden>
+                <i class="fas fa-magnifying-glass"></i>
+                <h3>No items found</h3>
+                <p class="menu-empty-text">Try another word or another category.</p>
+                <button type="button" class="btn reset-filters">Reset filters</button>
+            </div>
+
+            <!-- Erreur de chargement -->
+            <div class="menu-error" hidden>
+                <i class="fas fa-triangle-exclamation"></i>
+                <h3>We could not load the menu</h3>
+                <p>Please check your connection and try again.</p>
+                <button type="button" class="btn retry-load">Try again</button>
+            </div>
 
         </section>
 
@@ -137,27 +177,69 @@
                 <div class="footer-column">
                     <h4>Contact</h4>
                     <ul class="footer-info">
-                        <li><i class="fas fa-location-dot"></i> Yaoundé, Bastos</li>
-                        <li><i class="fas fa-envelope"></i> exemple@gmail.com</li>
-                        <li><i class="fas fa-phone"></i> +237 600 00 00 00</li>
+                        <li>
+                            <a class="footer-contact-link"
+                                href="https://www.google.com/maps/search/?api=1&query=Bastos%2C+Yaound%C3%A9%2C+Cameroon"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Open Yaoundé, Bastos in Google Maps (opens in a new tab)">
+                                <i class="fas fa-location-dot"></i>
+                                <span>Yaoundé, Bastos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer-contact-link"
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=exemple@gmail.com&su=Hello%20Best%20Coffee"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Send an email with Gmail (opens in a new tab)">
+                                <i class="fas fa-envelope"></i>
+                                <span>exemple@gmail.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <button type="button" class="footer-contact-link" data-copy="+237600000000"
+                                aria-label="Copy phone number +237 600 00 00 00" title="Click to copy">
+                                <i class="fas fa-phone"></i>
+                                <span>+237 600 00 00 00</span>
+                                <i class="fas fa-copy copy-icon"></i>
+                            </button>
+                        </li>
                     </ul>
                 </div>
-
-                <div class="footer-column">
-                    <h4>Opening Hours</h4>
-                    <ul class="footer-hours">
-                        <li><span>Mon – Fri</span> <span>9:00 AM – 8:00 PM</span></li>
-                        <li><span>Saturday</span> <span>10:00 AM – 6:00 PM</span></li>
-                        <li><span>Sunday</span> <span>Closed</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Coffee. All rights reserved.</p>
             </div>
         </footer>
     </main>
+
+    <!-- Fenêtre de détail produit -->
+    <dialog class="product-modal" id="product-modal" aria-labelledby="pm-name">
+        <button type="button" class="pm-close" aria-label="Close">
+            <i class="fas fa-xmark"></i>
+        </button>
+
+        <div class="pm-image">
+            <img id="pm-img" src="" alt="">
+        </div>
+
+        <div class="pm-body">
+            <span class="pm-category" id="pm-category"></span>
+            <h2 id="pm-name"></h2>
+            <p class="pm-price" id="pm-price"></p>
+            <p class="pm-desc" id="pm-desc"></p>
+            <p class="pm-incart" id="pm-incart" hidden></p>
+
+            <div class="pm-qty-row">
+                <span>Quantity</span>
+                <div class="pm-qty">
+                    <button type="button" id="pm-minus" aria-label="Decrease quantity"><i
+                            class="fas fa-minus"></i></button>
+                    <span id="pm-qty" aria-live="polite">1</span>
+                    <button type="button" id="pm-plus" aria-label="Increase quantity"><i
+                            class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <button type="button" class="btn pm-add" id="pm-add"></button>
+        </div>
+    </dialog>
 
     <script src="./Js/cart.js"></script>
     <script src="./Js/menu.js"></script>

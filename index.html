@@ -334,9 +334,8 @@
         <!-- Footer section -->
         <footer class="footer">
             <div class="section-content footer-content">
-
                 <div class="footer-about">
-                    <a href="#" class="footer-logo">☕ Coffee</a>
+                    <a href="./index.html" class="footer-logo">☕ Coffee</a>
                     <p>Fresh coffee, warm pastries and a place to feel at home. Come say hello.</p>
 
                     <div class="footer-social">
@@ -361,24 +360,34 @@
                 <div class="footer-column">
                     <h4>Contact</h4>
                     <ul class="footer-info">
-                        <li><i class="fas fa-location-dot"></i> Yaoundé, Bastos</li>
-                        <li><i class="fas fa-envelope"></i> exemple@gmail.com</li>
-                        <li><i class="fas fa-phone"></i> +237 600 00 00 00</li>
+                        <li>
+                            <a class="footer-contact-link"
+                                href="https://www.google.com/maps/search/?api=1&query=Bastos%2C+Yaound%C3%A9%2C+Cameroon"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Open Yaoundé, Bastos in Google Maps (opens in a new tab)">
+                                <i class="fas fa-location-dot"></i>
+                                <span>Yaoundé, Bastos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer-contact-link"
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=exemple@gmail.com&su=Hello%20Best%20Coffee"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Send an email with Gmail (opens in a new tab)">
+                                <i class="fas fa-envelope"></i>
+                                <span>exemple@gmail.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <button type="button" class="footer-contact-link" data-copy="+237600000000"
+                                aria-label="Copy phone number +237 600 00 00 00" title="Click to copy">
+                                <i class="fas fa-phone"></i>
+                                <span>+237 600 00 00 00</span>
+                                <i class="fas fa-copy copy-icon"></i>
+                            </button>
+                        </li>
                     </ul>
                 </div>
-
-                <div class="footer-column">
-                    <h4>Opening Hours</h4>
-                    <ul class="footer-hours">
-                        <li><span>Mon – Fri</span> <span>9:00 AM – 8:00 PM</span></li>
-                        <li><span>Saturday</span> <span>10:00 AM – 6:00 PM</span></li>
-                        <li><span>Sunday</span> <span>Closed</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Coffee. All rights reserved.</p>
             </div>
         </footer>
     </main>

@@ -23,7 +23,9 @@ const renderCart = () => {
     cartList.innerHTML = cart.map(item => `
         <article class="cart-item" data-id="${item.id}">
             <div class="item-image">
+            <a href="menu.html#product-${item.id}" class="item-image" aria-label="See ${item.name} in the menu">
                 <img src="${item.image}" alt="${item.name}">
+            </a>
             </div>
             <div class="item-info">
                 <h3>${item.name}</h3>
