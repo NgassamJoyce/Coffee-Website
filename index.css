@@ -39,10 +39,17 @@
     --border-radius-circle: 50%;
 
     /* Site max width */
-    --site-max-width: 1300px;
+    --site-max-width: 1240px;
+    --page-gutter: clamp(20px, 4vw, 56px);
 }
 
 /* Stylings for whole site */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+    /* les titres ne passent plus sous la navbar fixe */
+}
 
 ul {
     list-style: none;
@@ -69,7 +76,7 @@ img {
 
 .section-content {
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--page-gutter);
     max-width: var(--site-max-width);
 }
 
@@ -104,7 +111,7 @@ header {
 header .navbar {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 20px var(--page-gutter);
     justify-content: space-between;
 }
 
@@ -120,6 +127,7 @@ header .navbar {
 }
 
 .navbar .nav-menu .nav-link {
+    position: relative;
     padding: 10px 18px;
     color: var(--white-color);
     font-size: var(--font-size-m);
@@ -130,6 +138,26 @@ header .navbar {
 .navbar .nav-menu .nav-link:hover {
     background: var(--secondary-color);
     color: var(--primary-color);
+}
+
+/* lien actif : l'utilisateur voit sur quelle page il est */
+.navbar .nav-menu .nav-link.active {
+    background: rgba(243, 150, 28, .18);
+    color: var(--secondary-color);
+    font-weight: var(--font-weight-medium);
+}
+
+/* petit trait orange sous le lien actif */
+.navbar .nav-menu .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 3px;
+    width: 18px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--secondary-color);
+    transform: translateX(-50%);
 }
 
 
@@ -151,6 +179,9 @@ header .navbar {
     justify-content: space-between;
 }
 
+.hero-section .hero-details{
+    padding-top: 3rem;
+}
 .hero-section .hero-details .title {
     font-size: 3rem;
     line-height: 1.1;
@@ -161,7 +192,7 @@ header .navbar {
 .hero-section .hero-details .subtitle {
     margin-top: 8px;
     max-width: 70%;
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-l);
     font-weight: var(--font-weight-semibold);
 }
 
@@ -210,20 +241,32 @@ header .navbar {
 }
 
 /* apparition du texte au chargement */
-.hero-details > * {
+.hero-details>* {
     animation: fadeUp .8s ease both;
 }
 
-.hero-details > :nth-child(2) { animation-delay: .1s; }
-.hero-details > :nth-child(3) { animation-delay: .2s; }
-.hero-details > :nth-child(4) { animation-delay: .3s; }
-.hero-details > :nth-child(5) { animation-delay: .4s; }
+.hero-details> :nth-child(2) {
+    animation-delay: .1s;
+}
+
+.hero-details> :nth-child(3) {
+    animation-delay: .2s;
+}
+
+.hero-details> :nth-child(4) {
+    animation-delay: .3s;
+}
+
+.hero-details> :nth-child(5) {
+    animation-delay: .4s;
+}
 
 @keyframes fadeUp {
     from {
         opacity: 0;
         transform: translateY(24px);
     }
+
     to {
         opacity: 1;
         transform: none;
@@ -258,7 +301,7 @@ header .navbar {
 .features-section {
     position: relative;
     z-index: 1;
-    margin-top: -55px;                  
+    margin-top: -55px;
 }
 
 .features-list {
@@ -381,15 +424,15 @@ header .navbar {
     border: .1rem solid var(--secondary-color);
     box-shadow: rgba(0, 0, 0, 0.05) 8px 8px 8px,
         rgba(0, 0, 0, 0.05) 8px 8px 8px inset;
+    overflow: hidden;
+    /* rien ne peut dépasser sur la bordure */
     transition: all 0.3s ease;
-}
-
-.menu-item:hover {
-    transform: scale(1.02);
 }
 
 .card-image {
     position: relative;
+    padding-top: 1.1rem;
+    /* l'image ne touche plus le bord de la carte */
 }
 
 .card-image img {
@@ -440,7 +483,8 @@ header .navbar {
 /* Message "produit ajouté" (en haut à droite) */
 .cart-toast {
     position: fixed;
-    top: 100px;                          /* juste sous la navbar */
+    top: 100px;
+    /* juste sous la navbar */
     right: 20px;
     z-index: 10;
     display: flex;
@@ -488,9 +532,17 @@ header .navbar {
 }
 
 @keyframes badgeBump {
-    0%   { transform: scale(1); }
-    40%  { transform: scale(1.5); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 
@@ -516,7 +568,8 @@ header .navbar {
     grid-template-columns: 1.1fr 1fr;
     align-items: center;
     gap: 3.5rem;
-    padding: 20px 34px 44px 20px;       
+    padding: 20px 34px 44px 20px;
+    /* de la place pour les ombres : sinon le slider les coupe */
 }
 
 .about-image {
@@ -524,7 +577,8 @@ header .navbar {
     overflow: hidden;
     border-radius: var(--border-radius-m);
     box-shadow:
-        10px 10px 0 var(--secondary-color),     /* bloc orange décalé derrière la photo */
+        10px 10px 0 var(--secondary-color),
+        /* bloc orange décalé derrière la photo */
         rgba(0, 0, 0, .15) 0 18px 18px;
 }
 
@@ -563,6 +617,7 @@ header .navbar {
     line-height: 1.8;
 }
 
+/* bouton "See our menu" : aucune animation d'apparition, il reste fixe */
 .about-btn {
     display: inline-flex;
     align-items: center;
@@ -578,14 +633,18 @@ header .navbar {
     color: var(--primary-color);
 }
 
-/* le texte glisse vers le haut à chaque changement de slide */
-.about-slide.swiper-slide-active .about-text > * {
+/* le texte glisse vers le haut à chaque changement de slide (sauf le bouton) */
+.about-slide.swiper-slide-active .about-text> :not(.about-btn) {
     animation: fadeUp .8s ease both;
 }
 
-.about-slide.swiper-slide-active .about-text > :nth-child(2) { animation-delay: .1s; }
-.about-slide.swiper-slide-active .about-text > :nth-child(3) { animation-delay: .2s; }
-.about-slide.swiper-slide-active .about-text > :nth-child(4) { animation-delay: .3s; }
+.about-slide.swiper-slide-active .about-text> :nth-child(2) {
+    animation-delay: .1s;
+}
+
+.about-slide.swiper-slide-active .about-text> :nth-child(3) {
+    animation-delay: .2s;
+}
 
 /* points de pagination */
 .about-slider .swiper-pagination {
@@ -610,7 +669,7 @@ header .navbar {
 
 /* Testimonials section styling */
 .testimonials-section {
-    background: #fff1dc;                 
+    background: #fff1dc;
     padding: 2rem 2rem 3rem;
 }
 
@@ -622,7 +681,7 @@ header .navbar {
     overflow: hidden;
     margin: 0 auto 50px;
     max-width: 900px;
-    padding-top: 12px;                   
+    padding-top: 12px;
 }
 
 .testimonials-section .testimonial {
@@ -822,6 +881,68 @@ header .navbar {
     transform: translateX(4px);
 }
 
+/* formulaire de contact : erreurs et confirmation */
+.error-msg {
+    display: none;
+    color: #ef4444;
+    font-size: var(--font-size-s);
+}
+
+.form-group.has-error .error-msg {
+    display: block;
+}
+
+.form-group.has-error input,
+.form-group.has-error textarea {
+    border-color: #ef4444;
+    background: #fff5f5;
+}
+
+.contact-btn:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+/* message de remerciement (caché tant que le formulaire n'est pas envoyé) */
+.form-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+    text-align: center;
+}
+
+.form-success>i {
+    display: grid;
+    place-items: center;
+    width: 4.5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #22c55e;
+    color: var(--white-color);
+    font-size: var(--font-size-m);
+}
+
+.form-success p {
+    max-width: 22rem;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.send-again {
+    margin-top: .6rem;
+}
+
+/* quand c'est envoyé : on cache les champs et on montre le remerciement */
+.contact-form.is-sent> :not(.form-success) {
+    display: none;
+}
+
+.contact-form.is-sent .form-success {
+    display: flex;
+    animation: fadeUp .6s ease both;
+}
+
 
 /* Footer styling */
 .footer {
@@ -836,9 +957,10 @@ header .navbar {
     transition: .3s ease;
 }
 
+/* 3 colonnes : la marque, les liens rapides, le contact */
 .footer-content {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1.4fr 1.2fr;
+    grid-template-columns: 1.4fr 1fr 1.4fr;
     gap: 2.5rem;
     padding-bottom: 50px;
 }
@@ -919,12 +1041,90 @@ header .navbar {
     color: var(--secondary-color);
 }
 
-/* horaires */
+/* coordonnées cliquables : adresse (Google Maps), e-mail (Gmail), téléphone (copie) */
+.footer-contact-link {
+    display: flex;
+    align-items: flex-start;
+    gap: .8rem;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    color: rgba(255, 255, 255, .75);
+    font: inherit;
+    line-height: 1.5;
+    text-align: left;
+    cursor: pointer;
+    transition: color .3s ease;
+}
+
+.footer-contact-link:hover {
+    color: var(--secondary-color);
+}
+
+.footer-contact-link:hover span:not(.copy-icon) {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.footer-contact-link:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.footer-info .copy-icon {
+    margin-left: auto;
+    width: auto;
+    color: rgba(255, 255, 255, .5);
+    font-size: .85rem;
+    transition: color .3s ease;
+}
+
+.footer-contact-link:hover .copy-icon {
+    color: var(--secondary-color);
+}
+
+/* message "copié" en bas de l'écran */
+.copy-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .8rem 1.4rem;
+    border-radius: 100vw;
+    background: var(--primary-color);
+    color: var(--white-color);
+    box-shadow: rgba(0, 0, 0, .35) 0 10px 30px;
+    font-size: var(--font-size-s);
+    opacity: 0;
+    transform: translate(-50%, 20px);
+    pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.copy-toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.copy-toast i {
+    color: #22c55e;
+}
+
+.copy-toast.error i {
+    color: #ef4444;
+}
+
+/* horaires : retirés du footer pour l'instant, styles gardés pour les remettre ailleurs */
 .footer-hours li {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    color: rgba(255, 255, 255, .75);
+    color: rgba(255, 255, 255, 0.63);
 }
 
 .footer-hours li+li {
@@ -952,6 +1152,7 @@ main {
         opacity: 0;
         transform: translateY(14px);
     }
+
     to {
         opacity: 1;
         transform: none;
@@ -975,6 +1176,7 @@ html.page-leaving main {
         opacity: 0;
         transform: translateX(60px) scale(.96);
     }
+
     to {
         opacity: 1;
         transform: none;
@@ -996,6 +1198,7 @@ html.page-leaving main {
         opacity: 0;
         transform: translateY(32px);
     }
+
     to {
         opacity: 1;
         transform: none;
@@ -1004,15 +1207,21 @@ html.page-leaving main {
 
 /* petits effets au survol et au clic */
 .menu-item .card-image img {
-    transition: transform .4s ease;
+    transition: transform .8s ease;
 }
 
-.menu-item:hover .card-image img {
-    transform: scale(1.08) rotate(-2deg);
+
+@media (hover: hover) {
+    .menu-item:hover {
+        transform: scale(1.02);
+    }
+
+    .menu-item:hover .card-image img {
+        transform: scale(1.08) rotate(-1deg);
+    }
 }
 
-.btn:active,
-.card-btn:active {
+.btn:not(.about-btn):active {
     transform: scale(.96);
 }
 
@@ -1022,69 +1231,6 @@ html.page-leaving main {
 
 .footer-social a:hover {
     transform: translateY(-3px);
-}
-
-/* ===== Formulaire de contact : erreurs et confirmation ===== */
-
-.error-msg {
-    display: none;
-    color: #c0392b;
-    font-size: var(--font-size-s);
-}
-
-.form-group.has-error .error-msg {
-    display: block;
-}
-
-.form-group.has-error input,
-.form-group.has-error textarea {
-    border-color: #c0392b;
-    background: #fff5f5;
-}
-
-.contact-btn:disabled {
-    opacity: .7;
-    cursor: not-allowed;
-}
-
-/* message de remerciement (caché tant que le formulaire n'est pas envoyé) */
-.form-success {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: .8rem;
-    text-align: center;
-}
-
-.form-success > i {
-    display: grid;
-    place-items: center;
-    width: 4.5rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: #2e9e5b;
-    color: var(--white-color);
-    font-size: var(--font-size-m);
-}
-
-.form-success p {
-    max-width: 22rem;
-    color: var(--dark-color);
-    line-height: 1.6;
-}
-
-.send-again {
-    margin-top: .6rem;
-}
-
-/* quand c'est envoyé : on cache les champs et on montre le remerciement */
-.contact-form.is-sent > :not(.form-success) {
-    display: none;
-}
-
-.contact-form.is-sent .form-success {
-    display: flex;
-    animation: fadeUp .6s ease both;
 }
 
 
@@ -1165,6 +1311,17 @@ html.page-leaving main {
         font-size: var(--font-size-m);
     }
 
+    /* lien actif dans le menu mobile */
+    .navbar .nav-menu .nav-link.active {
+        background: var(--secondary-color);
+        color: var(--primary-color);
+        font-weight: var(--font-weight-semibold);
+    }
+
+    .navbar .nav-menu .nav-link.active::after {
+        display: none;
+    }
+
     .desktop-action .btn {
         display: none;
     }
@@ -1234,16 +1391,18 @@ html.page-leaving main {
     .about-slide {
         grid-template-columns: minmax(0, 1fr);
         gap: 1.5rem;
-        padding: 10px 22px 36px 10px;
+        padding: 10px 0 36px;
+        /* padding symétrique : l'image est centrée */
     }
 
     .about-image {
         aspect-ratio: 16 / 11;
-        box-shadow: rgba(0, 0, 0, .15) 0 10px 25px;   
+        box-shadow: rgba(0, 0, 0, .15) 0 10px 25px;
+        /* plus de bloc orange sur mobile */
     }
 
     .about-text {
-        text-align: left;               
+        text-align: left;
     }
 
     .about-text p {
@@ -1277,6 +1436,11 @@ html.page-leaving main {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 2rem;
     }
+
+    /* la colonne contact prend toute la largeur en bas */
+    .footer-content .footer-column:last-child {
+        grid-column: 1 / -1;
+    }
 }
 
 /* Responsive media query code for max width 640px */
@@ -1303,6 +1467,33 @@ html.page-leaving main {
 
     .footer-info li {
         overflow-wrap: anywhere;
+    }
+
+    /* cartes produits sur mobile : plus larges et plus aérées */
+    .menu-section .card-list {
+        width: min(100%, 400px);
+        margin-inline: auto;
+        gap: 0;
+        /* l'espace entre cartes vient de leur marge */
+    }
+
+    .menu-section .menu-item {
+        max-width: 100%;
+        margin-bottom: 1.4rem;
+    }
+
+    .menu-section .card-image img {
+        width: 11rem;
+        height: 11rem;
+    }
+
+    .menu-section .menu-item .name {
+        font-size: 1.15rem;
+    }
+
+    .menu-section .card-btn {
+        margin-bottom: 1.6rem;
+        padding: .65rem 1.8rem;
     }
 }
 
