@@ -1,6 +1,5 @@
-const CART_KEY = 'coffee-cart';     // le nom de la "case" dans le carnet
+const CART_KEY = 'coffee-cart';     
 
-// lire le panier (renvoie [] s'il est vide ou illisible)
 function getCart() {
     try {
         return JSON.parse(localStorage.getItem(CART_KEY)) || [];
@@ -9,7 +8,6 @@ function getCart() {
     }
 }
 
-// écrire le panier, puis mettre à jour le compteur et les boutons
 function saveCart(cart) {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
     updateCartBadge();
@@ -21,20 +19,20 @@ function addToCart(product) {
     const existing = cart.find(item => item.id === product.id);
 
     if (existing) {
-        existing.quantity += 1;                 // déjà présent : +1
+        existing.quantity += 1;                 
     } else {
-        cart.unshift({                          // unshift = ajout au DÉBUT
+        cart.unshift({                         
             id: product.id,
             name: product.name,
             image: product.image,
-            price: parseFloat(product.price),   // "30$" devient 30
+            price: parseFloat(product.price),   
             quantity: 1
         });
     }
 
     saveCart(cart);
-    bumpCartBadge();                            // le compteur rebondit
-    showToast(product.name);                    // le message apparaît
+    bumpCartBadge();                           
+    showToast(product.name);                   
 }
 
 function updateCartBadge() {
@@ -67,8 +65,7 @@ function syncCardButtons() {
     });
 }
 
-// les cartes sont créées par menu.js / script.js après le chargement du JSON :
-// on surveille la liste et on colore les boutons dès que les cartes apparaissent
+
 const cardListEl = document.querySelector('.card-list');
 if (cardListEl) {
     new MutationObserver(syncCardButtons).observe(cardListEl, { childList: true });
@@ -120,4 +117,4 @@ function showToast(productName) {
     toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
-updateCartBadge();   // au chargement de chaque page
+updateCartBadge();   

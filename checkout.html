@@ -10,7 +10,8 @@
     <meta name="robots" content="noindex">
 
     <!-- Favicon (emoji) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="./index.css">
@@ -70,21 +71,30 @@
     <main class="checkout-page">
         <h1 class="section-title">Checkout</h1>
 
-        <!-- Étapes -->
-        <ol class="steps">
-            <li class="done">
+        <!-- Indicateur de progression -->
+        <ol class="steps" id="steps" aria-label="Checkout progress">
+            <li class="done" data-step="cart">
                 <span class="step-num"><i class="fas fa-check"></i></span>
                 <span class="step-label">Cart</span>
             </li>
-            <li class="active">
+            <li class="active" data-step="details" aria-current="step">
                 <span class="step-num">2</span>
                 <span class="step-label">Details</span>
             </li>
-            <li>
+            <li data-step="delivery">
                 <span class="step-num">3</span>
+                <span class="step-label">Delivery</span>
+            </li>
+            <li data-step="payment">
+                <span class="step-num">4</span>
+                <span class="step-label">Payment</span>
+            </li>
+            <li data-step="confirmation">
+                <span class="step-num">5</span>
                 <span class="step-label">Confirmation</span>
             </li>
         </ol>
+        <p class="step-caption" id="step-caption" aria-live="polite">Step 2 of 5 · Details</p>
 
         <!-- Affiché si le panier est vide -->
         <div class="checkout-empty" hidden>
@@ -93,141 +103,332 @@
             <a href="./menu.html" class="btn">Browse the menu</a>
         </div>
 
-        <div class="checkout-layout">
-            <form class="checkout-form" id="checkout-form" novalidate>
+        <form class="checkout-form" id="checkout-form" novalidate>
+            <!-- ÉTAPE : informations personnelles -->
+            <section class="step-card" data-panel="details" aria-labelledby="details-title">
+                <header class="card-head">
+                    <span class="card-icon" aria-hidden="true"><i class="fas fa-user"></i></span>
+                    <div>
+                        <h2 id="details-title" tabindex="-1">Your details</h2>
+                        <p>We use them to reach you about your order and to prepare your invoice.</p>
+                    </div>
+                </header>
 
-                <!-- 1. Coordonnées -->
-                <section class="form-block">
-                    <h3><i class="fas fa-user"></i> Contact details</h3>
+                <div class="form-grid">
 
+                    <!-- Nom complet -->
+                    <div class="form-group span-2">
+                        <label for="fullname">Full name <span class="req" aria-hidden="true">*</span></label>
+                        <div class="input-wrap">
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                            <input type="text" id="fullname" name="fullname" placeholder="Your full name"
+                                autocomplete="name" maxlength="60" required aria-describedby="fullname-error">
+                            <i class="fas fa-circle-check state-ok" aria-hidden="true"></i>
+                        </div>
+                        <small class="error-msg" id="fullname-error" aria-live="polite"></small>
+                    </div>
+
+                    <!-- E-mail -->
                     <div class="form-group">
-                        <label for="fullname">Full name</label>
-                        <input type="text" id="fullname" placeholder="Your full name" autocomplete="name">
-                        <small class="error-msg" aria-live="polite"></small>
+                        <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+                        <div class="input-wrap">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <input type="email" id="email" name="email" inputmode="email" placeholder="name@example.com"
+                                autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="100" required
+                                aria-describedby="email-error">
+                            <i class="fas fa-circle-check state-ok" aria-hidden="true"></i>
+                        </div>
+                        <small class="error-msg" id="email-error" aria-live="polite"></small>
                     </div>
 
+                    <!-- Téléphone -->
                     <div class="form-group">
-                        <label for="phone">Phone number</label>
-                        <input type="tel" id="phone" placeholder="+237 6 00 00 00 00" autocomplete="tel">
-                        <small class="error-msg" aria-live="polite"></small>
-                    </div>
-                </section>
-
-                <!-- 2. Livraison -->
-                <section class="form-block">
-                    <h3><i class="fas fa-truck-fast"></i> Delivery method</h3>
-
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="delivery" value="delivery" checked>
-                            <span class="option-body">
-                                <i class="fas fa-motorcycle"></i>
-                                <strong>Home delivery</strong>
-                                <small>30–45 min</small>
-                            </span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="delivery" value="pickup">
-                            <span class="option-body">
-                                <i class="fas fa-store"></i>
-                                <strong>Store pickup</strong>
-                                <small>15–20 min</small>
-                            </span>
-                        </label>
+                        <label for="phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+                        <div class="phone-field">
+                            <span class="phone-prefix" aria-hidden="true"><i class="fas fa-phone"></i> +237</span>
+                            <input type="tel" id="phone" name="phone" inputmode="numeric" placeholder="655 12 34 56"
+                                autocomplete="tel-national" required aria-describedby="phone-hint phone-error">
+                            <i class="fas fa-circle-check state-ok" aria-hidden="true"></i>
+                        </div>
+                        <small class="field-hint" id="phone-hint">Mobile number: 9 digits, starting with 6</small>
+                        <small class="error-msg" id="phone-error" aria-live="polite"></small>
                     </div>
 
-                    <div class="form-group address-group">
-                        <label for="address">Delivery address</label>
-                        <input type="text" id="address" placeholder="Neighborhood, street, landmark" autocomplete="street-address">
-                        <small class="error-msg" aria-live="polite"></small>
+                    <!-- Notes -->
+                    <div class="form-group span-2">
+                        <label for="notes">Order notes <span class="optional">(optional)</span></label>
+                        <textarea id="notes" name="notes" maxlength="250"
+                            placeholder="Anything we should know? (sugar, no ice, allergies...)"></textarea>
+                        <small class="field-counter" id="notes-count">0 / 250</small>
+                    </div>
+                </div>
+
+                <p class="form-alert" id="details-alert" role="alert" hidden>
+                    <i class="fas fa-circle-exclamation" aria-hidden="true"></i>
+                    Please correct the highlighted fields to continue.
+                </p>
+
+                <div class="card-actions">
+                    <a href="./panier.html" class="btn btn-outline">
+                        <i class="fas fa-arrow-left"></i> Back to cart
+                    </a>
+                    <button type="button" class="btn btn-next" data-action="next">
+                        Next step <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ÉTAPE : livraison ou retrait -->
+            <section class="step-card" data-panel="delivery" aria-labelledby="delivery-title" hidden>
+
+                <header class="card-head">
+                    <span class="card-icon" aria-hidden="true">
+                        <i class="fas fa-truck-fast"></i>
+                    </span>
+                    <div>
+                        <h2 id="delivery-title" tabindex="-1">Delivery method</h2>
+                        <p>Choose how you would like to receive your order.</p>
+                    </div>
+                </header>
+
+                <div class="form-grid">
+
+                    <!-- Choix du mode de réception -->
+                    <div class="form-group span-2">
+                        <label>How would you like to receive your order?</label>
+
+                        <div class="delivery-options">
+
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery" value="delivery" checked>
+
+                                <span class="delivery-option-content">
+                                    <i class="fas fa-truck-fast"></i>
+                                    <strong>Home delivery</strong>
+                                    <small>Receive your order at your address.</small>
+                                </span>
+                            </label>
+
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery" value="pickup">
+
+                                <span class="delivery-option-content">
+                                    <i class="fas fa-store"></i>
+                                    <strong>Pickup</strong>
+                                    <small>Collect your order at our shop.</small>
+                                </span>
+                            </label>
+
+                        </div>
                     </div>
 
-                    <p class="pickup-note">
-                        <i class="fas fa-location-dot"></i>
-                        Pick up your order at <strong>Yaoundé, Bastos</strong>. No delivery fee.
+                    <!-- Informations de livraison -->
+                    <div class="form-group span-2" id="delivery-address-group">
+                        <label for="city">City <span class="req">*</span></label>
+                        <div class="input-wrap">
+                            <i class="fas fa-city"></i>
+                            <input type="text" id="city" name="city" placeholder="Your city"
+                                autocomplete="address-level2">
+                        </div>
+                        <small class="error-msg"></small>
+                    </div>
+
+                    <div class="form-group span-2" id="delivery-quarter-group">
+                        <label for="quarter">Neighborhood / Quarter <span class="req">*</span></label>
+                        <div class="input-wrap">
+                            <i class="fas fa-location-dot"></i>
+                            <input type="text" id="quarter" name="quarter" placeholder="Your exact neighborhood">
+                        </div>
+                        <small class="error-msg"></small>
+                    </div>
+
+                    <div class="form-group span-2" id="delivery-landmark-group">
+                        <label for="landmark">Landmark or instructions (optional)</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-map-pin"></i>
+                            <input type="text" id="landmark" name="landmark"
+                                placeholder="Near a school, beside a pharmacy...">
+                        </div>
+                    </div>
+
+                    <!-- Heure de retrait -->
+                    <div class="form-group span-2" id="pickup-time-group" hidden>
+                        <label for="pickup-time">Preferred pickup time <span class="req">*</span></label>
+                        <div class="input-wrap">
+                            <i class="fas fa-clock"></i>
+                            <input type="time" id="pickup-time" name="pickup-time">
+                        </div>
+                        <small class="error-msg"></small>
+                    </div>
+
+                </div>
+
+                <p class="form-alert" id="delivery-alert" role="alert" hidden>
+                    Please complete the required delivery information.
+                </p>
+
+                <div class="card-actions">
+                    <button type="button" class="btn btn-outline" data-action="back">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+
+                    <button type="button" class="btn btn-next" data-action="next">
+                        Continue to payment <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </section>
+
+            <!-- ÉTAPE : paiement -->
+            <section class="payment-layout" data-panel="payment" aria-labelledby="payment-title" hidden>
+
+                <!-- Colonne gauche : récapitulatif -->
+                <aside class="checkout-summary" aria-label="Order summary">
+                    <h2>Order summary</h2>
+                    <p class="summary-sub" id="summary-sub">Review your items before paying.</p>
+
+                    <div class="summary-items" id="summary-items"></div>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="summary-subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery</span>
+                        <span id="summary-delivery">$0.00</span>
+                    </div>
+                    <div class="summary-row total-row">
+                        <span>Total</span>
+                        <span class="summary-total" id="summary-total">$0.00</span>
+                    </div>
+                </aside>
+
+                <!-- Colonne droite : paiement -->
+                <div class="step-card">
+
+                    <header class="card-head">
+                        <span class="card-icon" aria-hidden="true">
+                            <i class="fas fa-wallet"></i>
+                        </span>
+                        <div>
+                            <h2 id="payment-title" tabindex="-1">Payment method</h2>
+                            <p>Choose your preferred mobile money payment method.</p>
+                        </div>
+                    </header>
+
+                    <div class="form-grid">
+
+                        <div class="form-group span-2">
+                            <label>Choose a payment method</label>
+
+                            <div class="delivery-options">
+                                <label class="delivery-option">
+                                    <input type="radio" name="payment" value="orange" checked>
+                                    <span class="delivery-option-content">
+                                        <strong>Orange Money</strong>
+                                        <small>Pay using your Orange Money account.</small>
+                                    </span>
+                                </label>
+
+                                <label class="delivery-option">
+                                    <input type="radio" name="payment" value="mtn">
+                                    <span class="delivery-option-content">
+                                        <strong>MTN Mobile Money</strong>
+                                        <small>Pay using your MTN MoMo account.</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group span-2">
+                            <label for="payment-phone">
+                                Mobile Money phone number <span class="req">*</span>
+                            </label>
+
+                            <div class="input-wrap">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="payment-phone" name="payment-phone" placeholder="655 12 34 56"
+                                    inputmode="numeric" required>
+                            </div>
+
+                            <small class="field-hint">
+                                Enter the 9-digit number linked to your Mobile Money account.
+                            </small>
+                            <small class="error-msg"></small>
+                        </div>
+
+                    </div>
+
+                    <p class="form-alert" id="payment-alert" role="alert" hidden>
+                        Please enter a valid Mobile Money phone number.
                     </p>
-                </section>
 
-                <!-- 3. Paiement -->
-                <section class="form-block">
-                    <h3><i class="fas fa-wallet"></i> Payment method</h3>
+                    <div class="card-actions">
+                        <button type="button" class="btn btn-outline" data-action="back">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
 
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="payment" value="cash" checked>
-                            <span class="option-body">
-                                <i class="fas fa-money-bill-wave"></i>
-                                <strong>Cash</strong>
-                                <small>Pay when you receive</small>
-                            </span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="payment" value="momo">
-                            <span class="option-body">
-                                <i class="fas fa-mobile-screen-button"></i>
-                                <strong>Mobile Money</strong>
-                                <small>MTN or Orange</small>
-                            </span>
-                        </label>
-
-                        <label class="option">
-                            <input type="radio" name="payment" value="card">
-                            <span class="option-body">
-                                <i class="fas fa-credit-card"></i>
-                                <strong>Card</strong>
-                                <small>Visa or Mastercard</small>
-                            </span>
-                        </label>
+                        <button type="button" class="btn btn-next" data-action="next">
+                            Continue <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
-                </section>
 
-                <!-- 4. Note -->
-                <section class="form-block">
-                    <h3><i class="fas fa-pen"></i> Order notes <span class="optional">(optional)</span></h3>
-
-                    <div class="form-group">
-                        <label for="notes" class="sr-only">Order notes</label>
-                        <textarea id="notes" placeholder="Anything we should know? (sugar, no ice, allergies...)"></textarea>
-                    </div>
-                </section>
-            </form>
-
-            <!-- Récapitulatif -->
-            <aside class="checkout-summary">
-                <h2>Order Summary</h2>
-
-                <ul class="summary-items"></ul>
-
-                <div class="summary-row">
-                    <span>Subtotal</span>
-                    <span class="summary-subtotal">$0.00</span>
+                    <p class="field-hint">
+                        Demo only: no real payment will be processed.
+                    </p>
                 </div>
-                <div class="summary-row">
-                    <span>Delivery</span>
-                    <span class="summary-delivery">$0.00</span>
-                </div>
-                <div class="summary-row total-row">
-                    <span>Total</span>
-                    <span class="summary-total">$0.00</span>
-                </div>
+            </section>
 
-                <button type="submit" form="checkout-form" class="btn place-order-btn">
-                    <i class="fas fa-lock"></i> Place order
-                </button>
-
-                <a href="./panier.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to cart</a>
-
-                <p class="demo-note">Demo site: no real payment will be made.</p>
-            </aside>
-        </div>
+        </form>
     </main>
+
+    <!-- Simulation du paiement Orange Money / MTN (sera branchée à l'étape du paiement) -->
+    <div class="pay-overlay" id="pay-overlay" role="dialog" aria-modal="true" aria-labelledby="pay-title" hidden>
+        <div class="pay-box">
+
+            <!-- En attente de la confirmation sur le téléphone -->
+            <div class="pay-state pay-waiting">
+                <div class="pay-spinner" aria-hidden="true"></div>
+                <h3 id="pay-title">Confirm on your phone</h3>
+                <p class="pay-text">
+                    We sent a request of <strong class="pay-amount"></strong>
+                    to <strong class="pay-phone"></strong>.
+                </p>
+                <p class="pay-text pay-help"></p>
+
+                <div class="pay-demo">
+                    <small>Demo: choose the result of the payment</small>
+                    <div class="pay-actions">
+                        <button type="button" class="btn" id="pay-approve">Approve</button>
+                        <button type="button" class="btn btn-outline" id="pay-decline">Decline</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paiement refusé -->
+            <div class="pay-state pay-failed" hidden>
+                <i class="fas fa-circle-xmark"></i>
+                <h3>Payment not completed</h3>
+                <p class="pay-text">The payment was declined. Nothing was charged and your order is still here.</p>
+                <div class="pay-actions">
+                    <button type="button" class="btn" id="pay-retry">Try again</button>
+                    <button type="button" class="btn btn-outline" id="pay-close">Change method</button>
+                </div>
+            </div>
+
+            <!-- Paiement accepté -->
+            <div class="pay-state pay-success" hidden>
+                <i class="fas fa-circle-check"></i>
+                <h3>Payment received</h3>
+                <p class="pay-text">Thank you! Taking you to your confirmation...</p>
+            </div>
+        </div>
+    </div>
 
     <script src="./Js/cart.js"></script>
     <script src="./Js/navbar.js"></script>
     <script src="./Js/checkout.js"></script>
-    <script src="./Js/animations.js"></script>
+    <script src="./Js/animation.js"></script>
 </body>
 
 </html>

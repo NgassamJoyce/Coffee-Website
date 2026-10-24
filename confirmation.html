@@ -70,7 +70,7 @@
         <h1 class="section-title">Order Confirmed</h1>
 
         <!-- Étapes : tout est terminé -->
-        <ol class="steps">
+        <ol class="steps" aria-label="Checkout progress">
             <li class="done">
                 <span class="step-num"><i class="fas fa-check"></i></span>
                 <span class="step-label">Cart</span>
@@ -78,6 +78,14 @@
             <li class="done">
                 <span class="step-num"><i class="fas fa-check"></i></span>
                 <span class="step-label">Details</span>
+            </li>
+            <li class="done">
+                <span class="step-num"><i class="fas fa-check"></i></span>
+                <span class="step-label">Delivery</span>
+            </li>
+            <li class="done">
+                <span class="step-num"><i class="fas fa-check"></i></span>
+                <span class="step-label">Payment</span>
             </li>
             <li class="done">
                 <span class="step-num"><i class="fas fa-check"></i></span>
@@ -132,34 +140,103 @@
                 </div>
             </div>
 
-            <ul class="confirm-items" id="c-items"></ul>
-
-            <div class="confirm-totals">
-                <div class="summary-row">
-                    <span>Subtotal</span>
-                    <span id="c-subtotal"></span>
-                </div>
-                <div class="summary-row">
-                    <span>Delivery</span>
-                    <span id="c-fee"></span>
-                </div>
-                <div class="summary-row total-row">
-                    <span>Total</span>
-                    <span id="c-total"></span>
-                </div>
-            </div>
-
             <div class="confirm-actions">
-                <a href="./menu.html" class="btn"><i class="fas fa-mug-hot"></i> Order again</a>
-                <button type="button" class="btn btn-outline" id="print-btn"><i class="fas fa-print"></i> Print receipt</button>
+                <button type="button" class="btn" id="view-invoice-btn">
+                    <i class="fas fa-file-invoice"></i> View invoice
+                </button>
+                <a href="./menu.html" class="btn btn-outline">
+                    <i class="fas fa-mug-hot"></i> Order again
+                </a>
             </div>
         </section>
     </main>
 
+    <!-- Facture : on peut la voir et la télécharger -->
+    <div class="invoice-overlay" id="invoice-overlay" role="dialog" aria-modal="true" aria-labelledby="invoice-title" hidden>
+        <div class="invoice-box">
+
+            <header class="invoice-bar">
+                <h3 id="invoice-title">Your invoice</h3>
+                <button type="button" class="invoice-x" id="invoice-close" aria-label="Close invoice">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </header>
+
+            <div class="invoice-sheet">
+
+                <div class="inv-head">
+                    <div>
+                        <p class="inv-shop" id="inv-shop"></p>
+                        <p class="inv-shop-lines" id="inv-shop-lines"></p>
+                    </div>
+                    <div class="inv-meta">
+                        <p class="inv-label">Invoice</p>
+                        <p class="inv-number" id="inv-number"></p>
+                        <p id="inv-date"></p>
+                    </div>
+                </div>
+
+                <div class="inv-parties">
+                    <div>
+                        <span>Billed to</span>
+                        <strong id="inv-name"></strong>
+                        <p id="inv-email"></p>
+                        <p id="inv-phone"></p>
+                    </div>
+                    <div>
+                        <span id="inv-place-label"></span>
+                        <strong id="inv-place"></strong>
+                        <p id="inv-payment"></p>
+                    </div>
+                </div>
+
+                <table class="inv-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th class="num">Qty</th>
+                            <th class="num">Price</th>
+                            <th class="num">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inv-items"></tbody>
+                </table>
+
+                <div class="inv-totals">
+                    <div>
+                        <span>Subtotal</span>
+                        <span id="inv-subtotal"></span>
+                    </div>
+                    <div>
+                        <span>Delivery</span>
+                        <span id="inv-fee"></span>
+                    </div>
+                    <div class="inv-grand">
+                        <span>Total</span>
+                        <span id="inv-total"></span>
+                    </div>
+                </div>
+
+                <p class="inv-paid"><i class="fas fa-circle-check"></i> Paid</p>
+                <p class="inv-thanks">Thank you for your order!</p>
+            </div>
+
+            <footer class="invoice-actions">
+                <button type="button" class="btn" id="invoice-download">
+                    <i class="fas fa-download"></i> Download invoice
+                </button>
+                <button type="button" class="btn btn-outline" id="invoice-close-2">Close</button>
+            </footer>
+        </div>
+    </div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <script src="./Js/cart.js"></script>
     <script src="./Js/navbar.js"></script>
     <script src="./Js/confirmation.js"></script>
-    <script src="./Js/animations.js"></script>
+    <script src="./Js/animation.js"></script>
 </body>
 
 </html>

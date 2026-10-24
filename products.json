@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "White Coffee",
-        "price": "30$",
+        "price": "500F",
         "image": "Assets/white-coffee.webp",
         "category": "coffee",
         "description": "A smooth, creamy coffee with a touch of milk and a delicate latte art on top. Our most loved classic."
@@ -10,7 +10,7 @@
     {
         "id": 2,
         "name": "Milk Coffee",
-        "price": "90$",
+        "price": "800F",
         "image": "Assets/Milk-coffee.webp",
         "category": "coffee",
         "description": "Rich espresso blended with warm steamed milk and a light, velvety foam. Soft, comforting and perfectly balanced."
@@ -18,7 +18,7 @@
     {
         "id": 3,
         "name": "Chocolate Coffee",
-        "price": "100$",
+        "price": "500F",
         "image": "Assets/chocolate-coffee.webp",
         "category": "coffee",
         "description": "Bold coffee meets dark chocolate in a sweet and indulgent cup, finished with a creamy foam."
@@ -26,7 +26,7 @@
     {
         "id": 4,
         "name": "Menthe Coffee",
-        "price": "150$",
+        "price": "800F",
         "image": "Assets/menthe-coffee.webp",
         "category": "coffee",
         "description": "A refreshing twist on coffee, with a hint of fresh mint that keeps every sip light and smooth."
@@ -34,7 +34,7 @@
     {
         "id": 5,
         "name": "Hot Coffee",
-        "price": "180$",
+        "price": "500F",
         "image": "Assets/hot-beverages.webp",
         "category": "coffee",
         "description": "Our signature hot coffee, brewed fresh and topped with heart-shaped latte art. Served steaming hot."
@@ -42,7 +42,7 @@
     {
         "id": 6,
         "name": "Black Coffee",
-        "price": "80$",
+        "price": "1000F",
         "image": "Assets/black-coffee.webp",
         "category": "coffee",
         "description": "Pure, strong and full of character. Freshly brewed from selected beans, with no milk and no sugar."
@@ -50,15 +50,15 @@
     {
         "id": 7,
         "name": "Ginger Coffee",
-        "price": "200$",
+        "price": "850F",
         "image": "Assets/coffee-gimgembre.webp",
         "category": "coffee",
         "description": "A warming blend of coffee and fresh ginger with a gentle spicy kick. Perfect on a cool morning."
     },
     {
         "id": 8,
-        "name": "Graine Coffee",
-        "price": "60$",
+        "name": "Coffee Seed",
+        "price": "900F",
         "image": "Assets/coffee-graine.webp",
         "category": "coffee",
         "description": "Made from whole roasted coffee beans, ground and brewed to order for a deep, aromatic flavor."
@@ -66,7 +66,7 @@
     {
         "id": 9,
         "name": "Iced Latte",
-        "price": "110$",
+        "price": "1100F",
         "image": "Assets/iced-latte.webp",
         "category": "cold-drinks",
         "description": "Espresso poured over cold milk and ice. Smooth, creamy and refreshing on a hot day."
@@ -74,7 +74,7 @@
     {
         "id": 10,
         "name": "Cold Brew",
-        "price": "120$",
+        "price": "1000F",
         "image": "Assets/cold-brew.webp",
         "category": "cold-drinks",
         "description": "Coffee steeped slowly in cold water for a naturally sweet, low-acid taste. Served over ice."
@@ -82,7 +82,7 @@
     {
         "id": 11,
         "name": "Orange Juice",
-        "price": "70$",
+        "price": "600F",
         "image": "Assets/orange-juice.webp",
         "category": "cold-drinks",
         "description": "Fresh oranges squeezed to order, with no added sugar. Bright, tangy and full of vitamins."
@@ -90,7 +90,7 @@
     {
         "id": 12,
         "name": "Strawberry Smoothie",
-        "price": "100$",
+        "price": "1000F",
         "image": "Assets/strawberry-smoothie.webp",
         "category": "cold-drinks",
         "description": "Ripe strawberries blended with creamy yogurt and ice into a thick, fruity and refreshing smoothie."
@@ -98,7 +98,7 @@
     {
         "id": 13,
         "name": "Hot Chocolate",
-        "price": "90$",
+        "price": "800F",
         "image": "Assets/hot-chocolate.webp",
         "category": "hot-drinks",
         "description": "Rich, velvety chocolate melted into hot milk. A cozy treat for chocolate lovers of all ages."
@@ -114,7 +114,7 @@
     {
         "id": 15,
         "name": "Ginger Tea",
-        "price": "60$",
+        "price": "600F",
         "image": "Assets/ginger-tea.webp",
         "category": "hot-drinks",
         "description": "Fresh ginger infused in hot water, with a warm, spicy taste. Soothing and full of flavor."
@@ -122,7 +122,7 @@
     {
         "id": 16,
         "name": "Honey Milk",
-        "price": "70$",
+        "price": "700F",
         "image": "Assets/honey-milk.webp",
         "category": "hot-drinks",
         "description": "Warm milk lightly sweetened with natural honey. Gentle and comforting, perfect before bedtime."
@@ -130,7 +130,7 @@
     {
         "id": 17,
         "name": "Croissant",
-        "price": "40$",
+        "price": "400F",
         "image": "Assets/croissant.webp",
         "category": "pastries",
         "description": "A golden, buttery croissant with a flaky crust and a soft center. Baked fresh every morning."
@@ -138,7 +138,7 @@
     {
         "id": 18,
         "name": "Chocolate Muffin",
-        "price": "50$",
+        "price": "400F",
         "image": "Assets/chocolate-muffin.webp",
         "category": "pastries",
         "description": "A soft, moist muffin loaded with chocolate chips. The perfect partner for your coffee."
@@ -146,7 +146,7 @@
     {
         "id": 19,
         "name": "Cheesecake",
-        "price": "130$",
+        "price": "800F",
         "image": "Assets/cheesecake.webp",
         "category": "pastries",
         "description": "Creamy cheesecake on a crunchy biscuit base, topped with a sweet berry sauce. Served chilled."
@@ -154,7 +154,7 @@
     {
         "id": 20,
         "name": "Brownie",
-        "price": "60$",
+        "price": "1000F",
         "image": "Assets/brownie.webp",
         "category": "pastries",
         "description": "A dense, fudgy chocolate brownie with a crisp top and a melt-in-your-mouth center."
@@ -162,7 +162,7 @@
     {
         "id": 21,
         "name": "Club Sandwich",
-        "price": "150$",
+        "price": "800F",
         "image": "Assets/club-sandwich.webp",
         "category": "meals",
         "description": "Toasted bread layered with chicken, fresh lettuce, tomato and creamy sauce. Hearty and satisfying."
@@ -170,7 +170,7 @@
     {
         "id": 22,
         "name": "Pancakes",
-        "price": "110$",
+        "price": "200F",
         "image": "Assets/pancakes.webp",
         "category": "meals",
         "description": "A stack of fluffy pancakes topped with butter and golden syrup. A sweet way to start the day."
@@ -178,7 +178,7 @@
     {
         "id": 23,
         "name": "Omelette",
-        "price": "90$",
+        "price": "500F",
         "image": "Assets/omelette.webp",
         "category": "meals",
         "description": "A light, fluffy omelette made with fresh eggs and herbs, served with golden potatoes."
@@ -186,7 +186,7 @@
     {
         "id": 24,
         "name": "Waffle",
-        "price": "100$",
+        "price": "300F",
         "image": "Assets/waffle.webp",
         "category": "meals",
         "description": "A crispy golden waffle drizzled with rich chocolate sauce. Crunchy outside, soft inside."
