@@ -14,7 +14,6 @@
     align-items: center;
     gap: 15rem;
     background:
-        radial-gradient(circle at 70% 45%, rgba(244, 152, 28, .18), transparent 45%),
         var(--primary-color);
 }
 
@@ -68,6 +67,7 @@
         opacity: 0;
         transform: translateX(-80px);
     }
+
     to {
         opacity: 1;
         transform: none;
@@ -79,6 +79,7 @@
         opacity: 0;
         transform: translateX(80px);
     }
+
     to {
         opacity: 1;
         transform: none;
@@ -114,10 +115,10 @@ body::before {
     z-index: -1;
     pointer-events: none;
     background:
-        linear-gradient(rgba(250, 244, 245, 0.041), rgba(250, 244, 245, 0.103)),   
-        url('./Assets/breakfast.webp') center / cover no-repeat;             
+        linear-gradient(rgba(250, 244, 245, 0.041), rgba(250, 244, 245, 0.103)),
+        url('./Assets/breakfast.webp') center / cover no-repeat;
     filter: blur(40px);
-    transform: scale(1.1);              
+    transform: scale(1.1);
 }
 
 .full-menu,
@@ -187,7 +188,7 @@ body::before {
     flex: 1 1 280px;
 }
 
-.search-box > i {
+.search-box>i {
     position: absolute;
     left: 1.1rem;
     color: var(--secondary-color);
@@ -294,7 +295,7 @@ body::before {
     animation: none !important;
 }
 
-.menu-item.highlight{
+.menu-item.highlight {
     border-color: var(--secondary-color);
     box-shadow: 0 0 0 .3rem rgba(243, 150, 28, .55), rgba(243, 150, 28, .35) 0 12px 30px;
     transform: scale(1.04);
@@ -312,8 +313,8 @@ body::before {
     box-shadow: rgba(0, 0, 0, .06) 0 6px 20px;
 }
 
-.menu-empty > i,
-.menu-error > i {
+.menu-empty>i,
+.menu-error>i {
     font-size: 2.6rem;
     color: var(--secondary-color);
 }
@@ -383,8 +384,13 @@ body::before {
 }
 
 @keyframes shimmer {
-    from { background-position: 200% 0; }
-    to   { background-position: -200% 0; }
+    from {
+        background-position: 200% 0;
+    }
+
+    to {
+        background-position: -200% 0;
+    }
 }
 
 
@@ -394,7 +400,8 @@ body.modal-open {
 }
 
 .product-modal {
-    margin: auto;                        /* le reset global (* { margin: 0 }) casse le centrage : on le remet */
+    margin: auto;
+    /* le reset global (* { margin: 0 }) casse le centrage : on le remet */
     padding: 0;
     width: min(820px, calc(100% - 2rem));
     max-height: 90vh;
@@ -423,6 +430,7 @@ body.modal-open {
         opacity: 0;
         transform: translateY(24px) scale(.97);
     }
+
     to {
         opacity: 1;
         transform: none;
@@ -570,6 +578,11 @@ body.modal-open {
     background: var(--primary-color);
 }
 
+.menu-item.product-highlight {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 5px;
+    background: #fff7ea;
+}
 
 /* tablette et mobile : bannière du haut en colonne */
 
@@ -679,6 +692,7 @@ body.modal-open {
     .sort-box select {
         flex: 1;
         width: 100%;
-        min-width: 0;                    /* c'est ce qui empêche le débordement */
+        min-width: 0;
+        /* c'est ce qui empêche le débordement */
     }
 }

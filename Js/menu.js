@@ -293,6 +293,32 @@
         setTimeout(() => card.classList.remove('highlight'), 2500);
     }
 
+       /* ===== Arrivée depuis le panier : aller au produit et le mettre en évidence ===== */
+    function focusProductFromUrl() {
+        const id = new URLSearchParams(location.search).get('product');
+        if (!id) return;
+
+        // on nettoie l'adresse pour que le rechargement ne refasse pas le défilement
+        history.replaceState(null, '', location.pathname + location.hash);
+
+        const card = cardList.querySelector('.menu-item[data-id="' + CSS.escape(id) + '"]');
+        if (!card) return;
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // petit délai : on laisse la page finir de s'afficher avant de défiler
+        setTimeout(() => {
+            card.scrollIntoView({
+                behavior: reduceMotion ? 'auto' : 'smooth',
+                block: 'center'
+            });
+
+            card.classList.add('product-highlight');
+            setTimeout(() => card.classList.remove('product-highlight'), 3000);
+        }, 350);
+    }
+
+
     /* ===== Chargement des produits ===== */
     function load() {
         errorBox.hidden = true;
@@ -305,11 +331,10 @@
                 if (!response.ok) throw new Error('HTTP ' + response.status);
                 return response.json();
             })
-            
             .then(data => {
                 productList = data;
                 render(true);
-                scrollToProduct();       
+                focusProductFromUrl();
             })
             .catch(error => {
                 console.error('Erreur de chargement :', error);
@@ -317,8 +342,6 @@
                 countEl.textContent = '';
                 errorBox.hidden = false;
             });
-
-
     }
 
     document.querySelector('.retry-load').addEventListener('click', load);

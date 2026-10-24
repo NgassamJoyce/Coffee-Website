@@ -10,8 +10,7 @@
     <meta name="robots" content="noindex">
 
     <!-- Favicon (emoji) -->
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="./index.css">
@@ -63,8 +62,7 @@
                     &nbsp;
                     <i class="fas fa-arrow-right-from-bracket"></i>
                 </a>
-                <button id="menu-open-button" class="fas fa-bars">
-
+                <button id="menu-open-button" class="fas fa-bars"></button>
             </div>
         </nav>
     </header>
@@ -74,26 +72,56 @@
 
         <div class="cart-layout">
             <div class="cart-items">
-                <a href="menu.html" class="continue-link">
-                    <i class="fas fa-arrow-left"></i> Continue shopping
-                </a>
+
+                <div class="cart-actions">
+                    <a href="./menu.html" class="continue-link">
+                        <i class="fas fa-arrow-left"></i> Continue shopping
+                    </a>
+                    <button type="button" class="clear-cart-btn">
+                        <i class="fa-solid fa-trash-can"></i> Clear All
+                    </button>
+                </div>
+
                 <div class="cart-list"></div>
             </div>
 
             <aside class="cart-summary">
                 <h2>Order Summary</h2>
+
                 <div class="summary-row">
                     <span>Items</span>
                     <span class="cart-count">0</span>
                 </div>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span class="cart-subtotal">0 FCFA</span>
+                </div>
                 <div class="summary-row total-row">
                     <span>Total</span>
-                    <span class="cart-total">$0.00</span>
+                    <span class="cart-total">0 FCFA</span>
                 </div>
+                <p class="delivery-hint">Delivery fee is calculated at checkout.</p>
+
                 <a href="./checkout.html" class="btn checkout-btn">Check out</a>
             </aside>
         </div>
     </main>
+
+    <!-- Confirmation avant de vider le panier : elle reste affichée jusqu'au choix du client -->
+    <div class="clear-overlay" id="clear-dialog" role="alertdialog" aria-modal="true"
+        aria-labelledby="clear-title" aria-describedby="clear-text" hidden>
+        <div class="clear-box">
+            <div class="clear-icon" aria-hidden="true">
+                <i class="fa-solid fa-trash-can"></i>
+            </div>
+            <h3 id="clear-title">Clear your cart?</h3>
+            <p id="clear-text"></p>
+            <div class="clear-actions">
+                <button type="button" class="clear-keep" id="clear-cancel">Keep my items</button>
+                <button type="button" class="clear-yes" id="clear-confirm">Yes, clear cart</button>
+            </div>
+        </div>
+    </div>
 
     <script src="./Js/cart.js"></script>
     <script src="./Js/navbar.js"></script>

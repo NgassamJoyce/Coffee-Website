@@ -1,13 +1,41 @@
 const cartLayout = document.querySelector('.cart-layout');
 const cartList = document.querySelector('.cart-list');
-const cartTotal = document.querySelector('.cart-total');
 const cartCount = document.querySelector('.cart-count');
+const cartSubtotal = document.querySelector('.cart-subtotal');
+const cartTotal = document.querySelector('.cart-total');
 
+const clearBtn = document.querySelector('.clear-cart-btn');
+const clearDialog = document.querySelector('#clear-dialog');
+const clearText = document.querySelector('#clear-text');
+const clearCancel = document.querySelector('#clear-cancel');
+const clearConfirm = document.querySelector('#clear-confirm');
+
+
+const money = n => Math.round(n) + '\u00A0FCFA';
+
+const escapeHTML = str => String(str).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+}[c]));
+
+
+
+function renderTotals(cart) {
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    cartCount.textContent = count;
+    cartSubtotal.textContent = money(subtotal);
+    cartTotal.textContent = money(subtotal);
+}
+
+
+/* ===== Affichage du panier ===== */
 const renderCart = () => {
     const cart = getCart();
 
-    // un panier vide cache le récapitulatif (voir le CSS)
     cartLayout.classList.toggle('is-empty', cart.length === 0);
+
+    renderTotals(cart);
 
     if (cart.length === 0) {
         cartList.innerHTML = `
@@ -22,14 +50,13 @@ const renderCart = () => {
 
     cartList.innerHTML = cart.map(item => `
         <article class="cart-item" data-id="${item.id}">
-            <div class="item-image">
-            <a href="menu.html#product-${item.id}" class="item-image" aria-label="See ${item.name} in the menu">
-                <img src="${item.image}" alt="${item.name}">
+            <a class="item-image" href="menu.html?product=${item.id}"
+               aria-label="Show ${escapeHTML(item.name)} on the menu" title="See on the menu">
+                <img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.name)}">
             </a>
-            </div>
             <div class="item-info">
-                <h3>${item.name}</h3>
-                <p class="unit-price">$${item.price.toFixed(2)} each</p>
+                <h3><a href="menu.html?product=${item.id}">${escapeHTML(item.name)}</a></h3>
+                <p class="unit-price">${money(item.price)} each</p>
             </div>
             <div class="quantity-control">
                 <button class="quantity-btn minus" aria-label="Decrease quantity">
@@ -40,20 +67,16 @@ const renderCart = () => {
                     <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
-            <p class="item-total">$${(item.price * item.quantity).toFixed(2)}</p>
-            <button class="remove-btn" aria-label="Remove ${item.name}">
+            <p class="item-total">${money(item.price * item.quantity)}</p>
+            <button class="remove-btn" aria-label="Remove ${escapeHTML(item.name)}">
                 <i class="fa-solid fa-trash-can"></i>
             </button>
         </article>
     `).join('');
-
-    const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-    cartCount.textContent = totalQuantity;
-    cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
 };
 
+
+/* ===== Quantités et suppression ===== */
 cartList.addEventListener('click', (e) => {
     const card = e.target.closest('.cart-item');
     if (!card || card.classList.contains('removing')) return;
@@ -70,7 +93,7 @@ cartList.addEventListener('click', (e) => {
     } else if (e.target.closest('.remove-btn')) {
         item.quantity = 0;
     } else {
-        return;
+        return;      
     }
 
     // si l'article va disparaître : on joue l'animation d'abord
@@ -80,12 +103,62 @@ cartList.addEventListener('click', (e) => {
         setTimeout(() => {
             saveCart(cart.filter(product => product.quantity > 0));
             renderCart();
-        }, 350);   // même durée que la transition CSS
+        }, 350);  
         return;
     }
 
     saveCart(cart);
     renderCart();
+});
+
+
+
+let lastFocus = null;
+
+function openClearDialog() {
+    const count = getCart().reduce((sum, item) => sum + item.quantity, 0);
+
+    clearText.textContent =
+        `All ${count} ${count === 1 ? 'item' : 'items'} will be removed from your cart. This cannot be undone.`;
+
+    lastFocus = document.activeElement;
+    clearDialog.hidden = false;
+    document.body.style.overflow = 'hidden';
+
+    clearCancel.focus();
+}
+
+function closeClearDialog() {
+    clearDialog.hidden = true;
+    document.body.style.overflow = '';
+
+    if (lastFocus) lastFocus.focus();
+}
+
+clearBtn.addEventListener('click', openClearDialog);
+clearCancel.addEventListener('click', closeClearDialog);
+
+clearDialog.addEventListener('click', (e) => {
+    if (e.target === clearDialog) closeClearDialog();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !clearDialog.hidden) closeClearDialog();
+});
+
+clearConfirm.addEventListener('click', () => {
+    closeClearDialog();
+
+    const cards = cartList.querySelectorAll('.cart-item');
+    cards.forEach((card, i) => {
+        card.style.transitionDelay = (i * 60) + 'ms';
+        card.classList.add('removing');
+    });
+
+    setTimeout(() => {
+        saveCart([]);
+        renderCart();
+    }, 350 + cards.length * 60);
 });
 
 renderCart();
